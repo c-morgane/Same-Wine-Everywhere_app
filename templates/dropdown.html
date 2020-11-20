@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Same Wine Everywhere</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    {% block body %}
+    <div class="jumbotron text-center">
+      <h1>Same Wine Everywhere</h1>
+      <p>SameWineEverywhere is an app based an recommandation algorythm combining NLP and machine learning.<br>
+        It groups wines according to their taste !<br>
+        Please select a wine and find the ten wines that are closest to yours.</p>
+    </div>
+
+    <h2>Select a wine</h2>
+    <form class="" action="/wine_app" method="post">
+      <select class="" name="wine_title" onchange="this.form.submit()">
+        {% for title in wine_titles %}
+          <option value="{{title}}">{{title}}</option>
+        {% endfor %}
+      </select>
+    </form>
+    {% endblock %}
